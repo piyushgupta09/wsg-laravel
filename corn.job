@@ -1,0 +1,1 @@
+/usr/local/bin/php /home/jws7wo35gy5n/server-wsgbrand/artisan queue:work --stop-when-empty >> /dev/null 2>&1

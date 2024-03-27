@@ -1,0 +1,3 @@
+chmod +x xscripts/publish-packages.sh
+chmod +x xscripts/package-list.sh
+chmod +x xscripts/setup.sh

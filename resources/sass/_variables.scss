@@ -1,0 +1,50 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.6;
+
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+// Colors
+$brand-primary: #e13848;
+$brand-primary-light: #e79199;
+$brand-secondary: #414141;
+$brand-secondary-light: #2b2b2bd4;
+$brand-accent: #dc803575;
+$text-dark: #232323;
+$text-light: #ffffff;
+$shadow: #232323;
+
+$grid-breakpoints: (
+  xs: 0,
+  ms: 375px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1600px,
+);
+
+:root {
+    --brand-primary: $brand-primary
+    --brand-primary-light: $brand-primary-light;
+    --brand-secondary: $brand-secondary;
+    --brand-secondary-light: $brand-secondary-light;
+    --brand-accent: $brand-accent;
+    --text-dark: $text-dark;
+    --text-light: $text-light;
+    --shadow: $shadow;
+  }
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;

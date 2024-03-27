@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Quintessential&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+#app {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #282828;
+}
+
+.font-title    { font-family: "Quicksand", sans-serif; }
+.font-brand    { font-family: "Quintessential", cursive; }
+.font-subtitle { font-family: "Montserrat", sans-serif; }
+.font-style    { font-family: "Dancing Script", cursive; }
+.font-text     { font-family: "Noto Sans", sans-serif; }
+.font-quick    { font-family: 'Quicksand', sans-serif; }
+.font-quint    { font-family: 'Quintessential', cursive; }
+.font-robot    { font-family: 'Roboto', sans-serif; }
+.font-sign     { font-family: 'Sacramento', cursive; }

@@ -1,0 +1,13 @@
+composer require ladumor/laravel-pwa
+
+
+php artisan laravel-pwa:publish             
+manifest.json file is published.
+offline.html file is published.
+sw.js (Service Worker) file is published.
+Default logo published.
+Generating autoload files
+Greeting!.. Enjoy PWA site...
+
+
+composer remove ladumor/laravel-pwa

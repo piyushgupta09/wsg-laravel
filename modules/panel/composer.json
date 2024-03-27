@@ -1,0 +1,19 @@
+{
+    "name": "piyushgupta/panel",
+    "description": "Provides dashboard and backend management service.",
+    "type": "library",
+    "license": "Unlicences",
+    "autoload": {
+        "psr-4": {
+            "Piyushgupta\\Panel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "PG Softcode",
+            "email": "pg.softcode@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

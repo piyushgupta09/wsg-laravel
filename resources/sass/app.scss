@@ -1,0 +1,37 @@
+@import 'variables';
+@import 'shorts';
+@import 'fonts';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-check-input:checked,
+.form-check-input:checked[type=checkbox] {
+    background-color: $brand-primary !important;
+    border-color: $brand-primary !important;
+}
+
+#partySearchInput:focus,
+#partySearchInput:active,
+#partySearchInput:hover {
+    outline: none;
+    box-shadow: none;
+}
+#partySearchInput {
+    background-color: transparent;
+}
+
+.text-brand {
+    color: $brand-primary !important;
+}
+
+.bg-brand {
+    background-color: $brand-primary !important;
+}
