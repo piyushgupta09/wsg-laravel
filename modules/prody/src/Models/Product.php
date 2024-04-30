@@ -99,6 +99,11 @@ class Product extends Model
             return false;
         }
 
+        // Also update product price
+        $this->mrp = $firstRange->mrp;
+        $this->rate = $firstRange->rate;
+        $this->saveQuietly();
+
         // Calculate the ranged price based on the first product range
         $rangePrice = $firstRange->rate;
         $rangedPrice = ceil($rangePrice / 100) * 100 - 1;

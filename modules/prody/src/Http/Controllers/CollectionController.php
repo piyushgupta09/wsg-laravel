@@ -4,6 +4,7 @@ namespace Fpaipl\Prody\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Fpaipl\Prody\Models\Collection;
+use Illuminate\Validation\Rules\File;
 use Fpaipl\Prody\Http\Requests\CollectionRequest;
 use Fpaipl\Panel\Http\Controllers\PanelController;
 use Fpaipl\Prody\Http\Requests\CollectionEditRequest;
@@ -40,11 +41,20 @@ class CollectionController extends PanelController
         }
     }
 
-    public function update(CollectionRequest $request, Collection $collection)
+    public function update(Request $request, Collection $collection)
     {
         try {
 
-            $collection->update($request->validated());
+            $validated = $request->validate([
+                'name' => ['required', 'string', 'max:255', 'unique:collections,name,' . $collection->name . ',name'],
+                'order' => ['nullable', 'numeric'],
+                'shade' => ['nullable', 'string'], // '#f7d5d8
+                'info' => ['nullable', 'string'],
+                'active' => ['nullable', 'boolean'],
+                'images.*' => ['nullable', File::types(['jpg', 'webp', 'png', 'jpeg'])],    
+            ]);
+
+            $collection->update($validated);
 
             $collection->addMediaFromRequest('image')
                 ->toMediaCollection(Collection::MEDIA_COLLECTION_NAME);
