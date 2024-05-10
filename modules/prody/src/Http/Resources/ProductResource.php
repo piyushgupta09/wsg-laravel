@@ -29,7 +29,7 @@ class ProductResource extends JsonResource
 
         $fpr = $this->productRanges->first();
 
-        $productMeasurements = ProductMeasurementResource::collection($this->productMeasurements);
+        // $productMeasurements = ProductMeasurementResource::collection($this->productMeasurements);
 
         // Step 1: Prepare Header Data
         $sizes = $this->productMeasurements->pluck('size')->unique();

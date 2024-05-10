@@ -27,7 +27,7 @@ class ProductCoordinator extends Coordinator
         //     return Product::with('category', 'productOptions', 'productRanges')->active()->find($id);
         // });
 
-        $product->load('category', 'productOptions', 'productRanges', 'productAttributes', 'productMeasurements');  
+        $product->load('brand', 'category', 'productOptions', 'productRanges', 'productAttributes', 'productMeasurements');  
 
         return response()->json([
             'status' => 'success',

@@ -18,7 +18,7 @@ class ProductRangeResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'abbr' => ProductRange::SHORT[$this->slug],
+            'abbr' => ProductRange::SHORT[$this->slug]?? 'small',
             'mrp' => $this->mrp,
             'rate' => $this->rate,
             'active' => $this->active,

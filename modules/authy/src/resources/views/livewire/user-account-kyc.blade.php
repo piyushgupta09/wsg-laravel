@@ -156,12 +156,27 @@
                 <p class="mb-1 font-title">Rejected By: <strong>{{ $account->approver_name }}</strong></p>
                 <p class="mb-1 font-title">Date: <strong>{{ $account->updated_at }}</strong></p>
                 <p class="font-title fw-bold mt-3 td-underline">Available Action:</p>
-                <p class="font-title"><strong>Archive:</strong> User not able to re-apply for kyc, also hide from accounts list.
+                <div class="mb-2 font-title d-flex justify-content-between align-items-center w-100">
+                    <div class="d-flex">
+                        <strong>Archive:</strong>
+                        User not able to re-apply for kyc, also hide from accounts list.
+                    </div>
                     <button class="btn btn-danger py-0" wire:click='archiveAccount'>Archive Now</button>
-                </p>
-                <p class="mb-1 font-title"><strong>Delete:</strong> Allow user to re-apply for kyc.
+                </div>
+                <div class="mb-2 font-title d-flex justify-content-between align-items-center">
+                    <div class="d-flex">
+                        <strong>Edit:</strong>
+                        Allow user to re-submit application.
+                    </div>
+                    <button class="btn btn-warning py-0" wire:click='reKyc'>Allow Resubmit</button>
+                </div>
+                <div class="mb-0 font-title d-flex justify-content-between align-items-center">
+                    <div class="d-flex">
+                        <strong>Delete:</strong>
+                        Allow user to re-apply for kyc.
+                    </div>
                     <button class="btn btn-success py-0" wire:click='deleteAccount'>Delete Now</button>
-                </p>
+                </div>
             </div>
         </div>
     @endif
@@ -188,10 +203,5 @@
             </div>
         </div>
     @endif
-
-
-    <button class="btn btn-success py-1 px-3 ms-2" wire:click='approveAccount'>
-        Approve Account
-    </button>
 
 </div>

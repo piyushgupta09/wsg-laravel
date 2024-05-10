@@ -26,22 +26,6 @@ class SetupNewAuthyAccount implements ShouldQueue
     {
         /** @var \App\Models\User $user */
         $user = $event->user;
-        $user->utype = $user->usernameIsEmailId() ? 'email' : 'mobile';
-        $user->save();
-
-        $user->assignRole('user');
-
-        $userAccount = Account::create([
-            'user_id' => $event->user->id,
-            'kycstep' => 'business',
-            'name' => $event->user->name,
-
-        ]);
-
-        Profile::create([
-            'user_id' => $event->user->id,
-            'role_assigned' => true,
-            'account' => $userAccount->id,
-        ]);
+        $user->generateNewUserAccount($user);
     }
 }

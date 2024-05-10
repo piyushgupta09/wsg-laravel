@@ -147,6 +147,20 @@ class UserAccountKyc extends Component
         ]);
     }
 
+    public function reKyc()
+    {
+        $this->account->update([
+            'kycstep' => 'business',
+            'status' => 'pending',
+            'reason' => null,
+        ]);
+
+        return redirect()->route('accounts.index')->with('toast', [
+            'class' => 'success',
+            'text' => 'Account Reset successfully.',
+        ]);
+    }
+
     /**
      * Render the component.
      *

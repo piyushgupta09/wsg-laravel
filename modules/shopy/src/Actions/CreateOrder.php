@@ -38,13 +38,13 @@ class CreateOrder
 
             $billingAddress = $user->addresses()->find($data['billing']);
 
-            $orderId = Str::random(6);
-            while (Order::where('oid', $orderId)->exists()) {
-                $orderId = Str::random(6);
-            }
+            // $orderId = Str::random(6);
+            // while (Order::where('oid', $orderId)->exists()) {
+            //     $orderId = Str::random(6);
+            // }
 
             $order = Order::create([
-                'oid' => $orderId,
+                'oid' => Order::createOid(),
                 'user_id' => $user->id,
                 'pay_mode' => $data['pay_mode'],
                 'billing_address' => $billingAddress->print,

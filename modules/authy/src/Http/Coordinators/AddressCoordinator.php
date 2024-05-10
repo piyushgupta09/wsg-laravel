@@ -5,6 +5,7 @@ namespace Fpaipl\Authy\Http\Coordinators;
 use App\Helpers\Responder;
 use Illuminate\Http\Request;
 use Fpaipl\Authy\Models\Address;
+use Fpaipl\Shopy\Models\Checkout;
 use Fpaipl\Panel\Http\Responses\ApiResponse;
 use Fpaipl\Panel\Http\Coordinators\Coordinator;
 use Fpaipl\Authy\Http\Resources\AddressResource;
@@ -56,6 +57,12 @@ class AddressCoordinator extends Coordinator
             ]);
             $newAddress->print = $this->generatePrint($newAddress);
             $newAddress->save();
+
+            // set the new address as checkout shipping address
+            $checkout = Checkout::where('user_id', $user->id)->firstOrFail();
+            $checkout->billing_shipping_same = 0;
+            $checkout->shipping_address_id = $newAddress->id;
+            $checkout->saveQuietly();
 
             $addresses = $user->addresses()->get();
             return Responder::ok(null, AddressResource::collection($addresses));

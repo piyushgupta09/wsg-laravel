@@ -23,6 +23,11 @@ class OrderResource extends JsonResource
             'date' => Carbon::parse($this->created_at)->format('d M'),
             'created_at' => Carbon::parse($this->created_at)->format('d-m-Y H:i A'),
             'billing_address' => $this->billing_address,
+            'customer' => [
+                'name' => $this->user?->account?->name,
+                'gstin' => $this->user?->account?->gstin,
+                'phone' => $this->user?->account?->contact,
+            ],
             'status' => $this->status,
             'total' => $this->total,
             'amount' => $this->amount,

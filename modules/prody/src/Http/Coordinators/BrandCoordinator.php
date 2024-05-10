@@ -6,7 +6,7 @@ use Fpaipl\Prody\Models\Brand;
 use Fpaipl\Prody\Models\Product;
 use Fpaipl\Prody\Http\Resources\BrandResource;
 use Fpaipl\Panel\Http\Coordinators\Coordinator;
-use Fpaipl\Prody\Http\Resources\ProductResource;
+use Fpaipl\Prody\Http\Resources\ProductCardResource;
 
 class BrandCoordinator extends Coordinator
 {
@@ -22,7 +22,7 @@ class BrandCoordinator extends Coordinator
 
     public function show(Brand $brand)
     {
-        $products = $brand->products->where('active', 1)->sortBy('name');
-        return ProductResource::collection($products);
+        $products = $brand->products->where('active', 1)->sortBy('created_at');
+        return ProductCardResource::collection($products->take(10));
     }
 }

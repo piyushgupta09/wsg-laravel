@@ -14,7 +14,7 @@ class MyShopCoordinator extends Coordinator
 
         return response()->json([
             'data' => [
-                'name' => $user->account->name,
+                'name' => $user->name,
                 'contact' => $user->account->contact,
                 'address' => $user->account->city,
                 'image' => $user->getFirstMediaUrl('profile'),

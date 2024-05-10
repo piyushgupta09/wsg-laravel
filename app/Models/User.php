@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Fpaipl\Shopy\Models\Cart;
 use Fpaipl\Shopy\Models\Order;
+use Fpaipl\Authy\Models\Account;
+use Fpaipl\Authy\Models\Profile;
 use Fpaipl\Prody\Models\Product;
 use Fpaipl\Shopy\Models\Checkout;
 use Fpaipl\Authy\Models\User as AuthyUser;
@@ -44,4 +46,25 @@ class User extends AuthyUser {
             ->unique('id');
     }   
    
+    public function generateNewUserAccount($user)
+    {
+        $user->utype = $user->usernameIsEmailId() ? 'email' : 'mobile';
+        $user->saveQuietly();
+
+        $user->assignRole('user');
+
+        $userAccount = Account::create([
+            'user_id' => $user->id,
+            'kycstep' => 'business',
+            'name' => $user->name,
+
+        ]);
+
+        Profile::create([
+            'user_id' => $user->id,
+            'role_assigned' => true,
+            'account' => $userAccount->id,
+        ]);
+    }
+
 }

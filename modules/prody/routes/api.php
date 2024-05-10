@@ -52,6 +52,7 @@ Route::middleware(['api', 'auth:sanctum'])->name('api.')->prefix('api')->group(f
     Route::get('myshop', [MyShopCoordinator::class, 'index']);
     Route::get('collections', [CollectionCoordinator::class, 'index']);
     Route::get('collections/{collection}', [CollectionCoordinator::class, 'show']);
+    Route::get('collection-products/{type}/{data?}', [CollectionCoordinator::class, 'products']);
     Route::get('categories', [CategoryCoordinator::class, 'index']);
     Route::get('categories/{category}', [CategoryCoordinator::class, 'show']);
     Route::get('categories/all/{category}',[CategoryCoordinator::class, 'viewall']);

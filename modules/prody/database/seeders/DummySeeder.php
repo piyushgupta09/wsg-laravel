@@ -252,81 +252,6 @@ class DummySeeder extends Seeder
 
         }
 
-
-        // Ranged collections
-
-        $rangedCollections = [
-            [
-                'name' => 'Under ₹ 99',
-                'shade' => '#f7e0d9', // slightly more orange
-                'image' => asset('storage/assets/collections/99.png')
-            ],
-            [
-                'name' => 'Under ₹ 199',
-                'shade' => '#f7d5e0', // slightly more purple
-                'image' => asset('storage/assets/collections/199.png')
-            ],
-            [
-                'name' => 'Under ₹ 299',
-                'shade' => '#f7d5cd', // slightly more peach
-                'image' => asset('storage/assets/collections/299.png')
-            ],
-            [
-                'name' => 'Under ₹ 399',
-                'shade' => '#f7e8d5', // slightly more beige
-                'image' => asset('storage/assets/collections/399.png')
-            ],
-            [
-                'name' => 'Under ₹ 499',
-                'shade' => '#f2d5f7', // a soft purple
-                'image' => asset('storage/assets/collections/499.png')
-            ],
-            [
-                'name' => 'Under ₹ 599',
-                'shade' => '#d5f7e2', // a soft green
-                'image' => asset('storage/assets/collections/599.png')
-            ],
-            [
-                'name' => 'Under ₹ 699',
-                'shade' => '#d5e7f7', // a soft blue
-                'image' => asset('storage/assets/collections/699.png')
-            ],
-            [
-                'name' => 'Under ₹ 799',
-                'shade' => '#f7d5d2', // a slightly different pink
-                'image' => asset('storage/assets/collections/799.png')
-            ],
-            [
-                'name' => 'Under ₹ 899',
-                'shade' => '#f7f0d5', // a soft yellow
-                'image' => asset('storage/assets/collections/899.png')
-            ],
-            [
-                'name' => 'Under ₹ 999',
-                'shade' => '#e8d5f7', // a very soft lavender
-                'image' => asset('storage/assets/collections/999.png')
-            ],
-        ];
-        
-
-        foreach ($rangedCollections as $index => $rangedCollection) {
-
-            $newCollection = Collection::create([
-                'name' => $rangedCollection['name'],
-                'info' => $rangedCollection['name'],
-                'order' => $index + 1,
-                'type' => 'ranged',
-                'shade' => $rangedCollection['shade'],
-            ]);
-
-            $newCollection
-                ->addMediaFromUrl($rangedCollection['image'])
-                ->preservingOriginal()
-                ->toMediaCollection(Collection::MEDIA_COLLECTION_NAME);
-        }
-
-        
-        
         // Featured collections
 
         $featuredCollections = [
@@ -341,6 +266,10 @@ class DummySeeder extends Seeder
             [
                 'name' => 'Stock Clearance',
                 'image' => asset('storage/assets/collections/featured3.jpeg'),
+            ],
+            [
+                'name' => 'Extra 10% Off',
+                'image' => asset('storage/assets/collections/featured2.jpeg'),
             ],
         ];
 
@@ -372,6 +301,112 @@ class DummySeeder extends Seeder
             ->addMediaFromUrl('https://picsum.photos/200/300')
             ->preservingOriginal()
             ->toMediaCollection(Collection::MEDIA_COLLECTION_NAME);
+
+
+
+        // Ranged collections
+        $rangedCollections = [
+            [
+                'name' => 'Under ₹ 49',
+                'image' => asset('storage/assets/collections/49x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 99',
+                'image' => asset('storage/assets/collections/99x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 149',
+                'image' => asset('storage/assets/collections/149x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 199',
+                'image' => asset('storage/assets/collections/199x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 249',
+                'image' => asset('storage/assets/collections/249x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 299',
+                'image' => asset('storage/assets/collections/299x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 349',
+                'image' => asset('storage/assets/collections/349x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 399',
+                'image' => asset('storage/assets/collections/399x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 449',
+                'image' => asset('storage/assets/collections/449x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 499',
+                'image' => asset('storage/assets/collections/499x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 549',
+                'image' => asset('storage/assets/collections/549x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 599',
+                'image' => asset('storage/assets/collections/599x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 649',
+                'image' => asset('storage/assets/collections/649x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 699',
+                'image' => asset('storage/assets/collections/699x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 749',
+                'image' => asset('storage/assets/collections/749x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 799',
+                'image' => asset('storage/assets/collections/799x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 849',
+                'image' => asset('storage/assets/collections/849x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 899',
+                'image' => asset('storage/assets/collections/899x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 949',
+                'image' => asset('storage/assets/collections/949x.jpeg')
+            ],
+            [
+                'name' => 'Under ₹ 999',
+                'image' => asset('storage/assets/collections/999x.jpeg')
+            ],
+        ];
+        
+
+        foreach ($rangedCollections as $index => $rangedCollection) {
+
+            $newCollection = Collection::create([
+                'name' => $rangedCollection['name'],
+                'info' => $rangedCollection['name'],
+                'order' => $index + 1,
+                'type' => 'ranged',
+                'shade' => '#000000',
+            ]);
+
+            $newCollection
+                ->addMediaFromUrl($rangedCollection['image'])
+                ->preservingOriginal()
+                ->toMediaCollection(Collection::MEDIA_COLLECTION_NAME);
+        }
+
+        
+        
 
     }
 }

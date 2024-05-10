@@ -18,7 +18,6 @@ class LoadProducts
 {
     public static function execute($wsgBrandId, $debug = false): int
     {
-        $debug = false;
         
         if ($debug) {
             Log::info('LoadProductsAction execute start');
@@ -193,27 +192,30 @@ class LoadProducts
                         );
                     }
                 }
-
+                
                 if (isset($product['product_collections']) && is_array($product['product_collections'])) {
-                    // delete all existing collection products
-                    // CollectionProduct::where('product_id', $newProduct->id)->delete();
-                    foreach ($product['product_collections'] as $productCollections) {
-                        if ($debug) {
-                            Log::info('CollectionProduct: ', $productCollections);
+                    foreach ($product['product_collections'] as $productCollection) {
+                        $productOptionExists = ProductOption::find($productCollection['product_option_id']);
+                        if (!$productOptionExists) {
+                            if ($debug) {
+                                Log::error('LoadProductsAction error: ', 
+                                ['error' => 'Product Option not found for ID: ' . $productCollection['product_option_id']]);
+                            }
+                            continue; // Skip this iteration if the product option does not exist
                         }
+                
                         CollectionProduct::updateOrCreate(
                             [
                                 'product_id' => $newProduct->id,
-                                'collection_id' => $productCollections['wsg_collection_id'],
+                                'collection_id' => $productCollection['wsg_collection_id'],
                             ],
                             [
-                                'product_option_id' => $productCollections['product_option_id'],
-                                // 'position' => $productCollections['position'],
+                                'product_option_id' => $productCollection['product_option_id'],
                             ]
                         );
                     }
                 }
-
+                
                 if ($newProduct->wasRecentlyCreated) {
                     $count++;
                     $newProduct->addToRangedCollection();

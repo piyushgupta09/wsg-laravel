@@ -10,6 +10,8 @@ use Fpaipl\Panel\Datatables\ModelDatatable;
 class CollectionDatatable extends ModelDatatable
 {
     const SORT_SELECT_DEFAULT = 'updated_at#desc';
+
+    const DELETE = true;
        
     public static function baseQuery($model): Builder
     {

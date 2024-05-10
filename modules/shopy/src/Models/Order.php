@@ -2,6 +2,7 @@
 
 namespace Fpaipl\Shopy\Models;
 
+use DateTime;
 use App\Models\User;
 use Fpaipl\Panel\Traits\Authx;
 use Fpaipl\Authy\Models\Address;
@@ -42,10 +43,17 @@ class Order extends Model
         return 'oid';
     }
 
-    public function createOid() {
-        $format = 'DG-';
-        $sequence = self::count() + 1;
-        return $format . $sequence;
+    public static function createOid() {
+        $format = 'WSG';
+        
+        $today = new DateTime();
+        $date = $today->format('d');
+        $month = $today->format('m');
+        $year = $today->format('Y');
+        $sumOfDate = $date + $month + $year;
+
+        $sequence = $sumOfDate + (self::count() * 71 / 3);
+        return $format . round($sequence);
     }
 
     public function getSid() {

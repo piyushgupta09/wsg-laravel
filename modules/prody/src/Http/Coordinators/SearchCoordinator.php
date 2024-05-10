@@ -12,7 +12,8 @@ class SearchCoordinator extends Coordinator
 {
     public function topSearchTags()
     {
-        $products = Product::select('tags')->get();
+        $products = Product::select('tags')->orderBy('id', 'desc')->limit(20)->get();
+
         $tags = [];
         
         // Add words you want to ignore here
@@ -62,18 +63,42 @@ class SearchCoordinator extends Coordinator
                     if (in_array(Str::title($tagWord), $tags)) {
                         continue;
                     }
+
+                    // Ignore if tagWord is a number
+                    if (is_numeric($tagWord)) {
+                        continue;
+                    }
+
+                    // Ignore if tagWord is a single character
+                    if (strlen($tagWord) == 1) {
+                        continue;
+                    }
+
+                    // Ignore if tagWord is a more than 12 characters
+                    if (strlen($tagWord) > 12) {
+                        continue;
+                    }
         
                     $tags[] = Str::title($tagWord);
                 }
             }
         }
-        return $tags;
+        // return only unique tags and limit count to 20
+        $uniqueTags = array_unique($tags);
+        $uniqueTags = array_slice($uniqueTags, 0, 20);
+        return response()->json([
+            'status' => 'success',
+            'data' => $uniqueTags
+        ]);
     }       
 
     public function search(Request $request)
     {
         $query = strtolower(trim($request->input('query')));
-        $products = Product::whereRaw("MATCH(tags) AGAINST(? IN BOOLEAN MODE)", [$query])->get();
-        return ProductResource::collection($products);
+        $products = Product::whereRaw("MATCH(tags) AGAINST(? IN BOOLEAN MODE)", [$query])->take(10)->get();
+        return response()->json([
+            'status' => 'success',
+            'data' => ProductResource::collection($products)
+        ]);
     }
 }

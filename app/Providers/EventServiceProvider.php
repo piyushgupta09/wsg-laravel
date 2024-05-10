@@ -23,8 +23,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         Verified::class => [
-            SendWelcomeEmail::class,
             SetupNewAuthyAccount::class,
+            SendWelcomeEmail::class,
         ],
         Approved::class => [
             SetupCustomerAccount::class,

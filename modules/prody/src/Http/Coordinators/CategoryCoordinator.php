@@ -4,11 +4,12 @@ namespace Fpaipl\Prody\Http\Coordinators;
 
 use Fpaipl\Prody\Models\Product;
 use Fpaipl\Prody\Models\Category;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
 use Fpaipl\Panel\Http\Coordinators\Coordinator;
 use Fpaipl\Prody\Http\Resources\ProductResource;
 use Fpaipl\Prody\Http\Resources\CategoryResource;
-use Illuminate\Support\Facades\Log;
+use Fpaipl\Prody\Http\Resources\ProductCardResource;
 
 class CategoryCoordinator extends Coordinator
 {
@@ -16,19 +17,25 @@ class CategoryCoordinator extends Coordinator
     
     public function index()
     {
-        $categories = Category::active()->display()->get();
+        // Try to find the 'womens' category; if not found, use a default category with id 1
+        $women = Category::where('slug', 'womens')->first() ?? Category::findOrFail(1);
+
+        // Get categories that are active, displayable, and children of the found category
+        $categories = Category::active()->display()->where('parent_id', $women->id)->get();
+
+        // Return the categories as a resource collection
         return CategoryResource::collection($categories->values()->all());
     }
 
     public function show(Category $category)
     {
         $category_id = $category->id;
-        Log::info('category_id: '.$category_id);
+        // Log::info('category_id: '.$category_id);
         Cache::forget('products'.$category_id);
         $products = Cache::remember('products'.$category_id, 24 * 60 * 60, function () use($category_id) {
             return Product::where('category_id', $category_id)->get();
         });
-        return ProductResource::collection($products);
+        return ProductCardResource::collection($products->take(10));
     }
 
 

@@ -274,7 +274,7 @@ abstract class PanelController extends BaseController
             'Fpaipl\Prody\Models\Fixedcost', // sid
             'Fpaipl\Prody\Models\Consumable', // sid
 
-            'Fpaipl\Prody\Models\Brand', // sid
+            // 'Fpaipl\Prody\Models\Brand', // id
             
             'Fpaipl\Brandy\Models\Party', // sid
             'Fpaipl\Brandy\Models\Employee', // sid

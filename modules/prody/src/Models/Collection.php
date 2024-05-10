@@ -44,7 +44,7 @@ class Collection extends Model implements HasMedia
     const TYPES = [
         [ 'id' => 'ranged', 'name' => 'Ranged' ],
         [ 'id' => 'featured', 'name' => 'Featured' ],
-        [ 'id' => 'best_seller	', 'name' => 'Best Seller'],
+        [ 'id' => 'custom', 'name' => 'Custom'],
         [ 'id' => 'recommended', 'name' => 'Recommended' ],
     ];
 

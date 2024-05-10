@@ -170,6 +170,7 @@ class AuthCoordinator extends Coordinator
             $user->save();
             
             // Remember to run queue:work
+            $user->generateNewUserAccount($user);
             event(new Verified($user));
 
             // Return success response
