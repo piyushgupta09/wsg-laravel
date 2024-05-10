@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Fpaipl\Prody\Models\Product;
 use Fpaipl\Panel\Http\Controllers\PanelController;
 use Fpaipl\Prody\Http\Requests\ProductRequest;
-use Fpaipl\Prody\DataTables\ProductDatatable as Datatable;
+use Fpaipl\Prody\Datatables\ProductDatatable as Datatable;
 
 class ProductController extends PanelController
 {

@@ -4,7 +4,7 @@ namespace Fpaipl\Shopy\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Fpaipl\Panel\Http\Controllers\PanelController;
-use Fpaipl\Shopy\DataTables\PaymentDatatable as Datatable;
+use Fpaipl\Shopy\Datatables\PaymentDatatable as Datatable;
 
 class PaymentController extends PanelController
 {

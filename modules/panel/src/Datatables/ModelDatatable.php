@@ -120,30 +120,30 @@ abstract class ModelDatatable implements Datatable
     public function topButtonsPart1(): array
     {
         return array(
-            'import' => [
-                'show' => [
-                    'active' => true,
-                    'trash' => false
-                ],
-                'label' => 'Import',
-                'icon' => 'bi bi-upload',
-                'type' => 'buttons.action-link',
-                'style' => '',
-                'route' => 'import-data.form',
-                'function' => '',
-            ],
-            'download_sample' => [
-                'show' => [
-                    'active' => true,
-                    'trash' => false,
-                ],
-                'label' => 'Download Sample',
-                'icon' => 'bi bi-file-earmark-arrow-down',
-                'type' => 'buttons.action-link',
-                'style' => '',
-                'route' => 'export-sample.model',
-                'function' => '',
-            ],
+            // 'import' => [
+            //     'show' => [
+            //         'active' => true,
+            //         'trash' => false
+            //     ],
+            //     'label' => 'Import',
+            //     'icon' => 'bi bi-upload',
+            //     'type' => 'buttons.action-link',
+            //     'style' => '',
+            //     'route' => 'import-data.form',
+            //     'function' => '',
+            // ],
+            // 'download_sample' => [
+            //     'show' => [
+            //         'active' => true,
+            //         'trash' => false,
+            //     ],
+            //     'label' => 'Download Sample',
+            //     'icon' => 'bi bi-file-earmark-arrow-down',
+            //     'type' => 'buttons.action-link',
+            //     'style' => '',
+            //     'route' => 'export-sample.model',
+            //     'function' => '',
+            // ],
         );
     }
 
@@ -154,66 +154,66 @@ abstract class ModelDatatable implements Datatable
      public function topButtonsPart2(): array
      {
          return array(
-             'export' => [
-                 'show' => [
-                     'active' => true,
-                     'trash' => true
-                 ],
-                 'label' => 'Export',
-                 'icon' => 'bi bi-download',
-                 'type' => 'buttons.action-btn',
-                 'style' => '',
-                 'route' => false,
-                 'function' => 'export',
-             ],
-             'bulk_delete' => [
-                 'show' => [
-                     'active' => $this->features()['bulk_actions']['show']['active'],
-                     'trash' => false, // Will always be false because we can't delete on trash page.
-                 ],
-                 'label' => 'Bulk Delete',
-                 'icon' => 'bi bi-trash3',
-                 'type' => 'buttons.action-btn',
-                 'style' => 'text-danger',
-                 'route' => false,
-                 'function' => 'deleteSelectedRecord',
-             ],
-             'bulk_restore' => [
-                 'show' => [
-                     'active' => false, // Will always be false because we can't restore on active page.
-                     'trash' => $this->features()['bulk_actions']['show']['trash'],
-                 ],
-                 'label' => 'Bulk Restore',
-                 'icon' => 'bi bi-arrow-counterclockwise',
-                 'type' => 'buttons.action-btn',
-                 'style' => 'text-success',
-                 'route' => false,
-                 'function' => 'restoreSelectedRecords',
-             ],
-             'trash' => [
-                 'show' => [
-                     'active' => true,
-                     'trash' => false
-                 ],
-                 'label' => 'Trash',
-                 'icon' => 'bi bi-recycle',
-                 'type' => 'buttons.action-btn',
-                 'style' => '',
-                 'route' => false,
-                 'function' => "toggleTrash('trash')",
-             ],
-             'active' => [
-                 'show' => [
-                     'active' => false,
-                     'trash' => true
-                 ],
-                 'label' => 'Active',
-                 'icon' => 'bi bi-x-lg',
-                 'type' => 'buttons.action-btn',
-                 'style' => '',
-                 'route' => false,
-                 'function' => "toggleTrash('active')",
-             ],
+            //  'export' => [
+            //      'show' => [
+            //          'active' => true,
+            //          'trash' => true
+            //      ],
+            //      'label' => 'Export',
+            //      'icon' => 'bi bi-download',
+            //      'type' => 'buttons.action-btn',
+            //      'style' => '',
+            //      'route' => false,
+            //      'function' => 'export',
+            //  ],
+            //  'bulk_delete' => [
+            //      'show' => [
+            //          'active' => $this->features()['bulk_actions']['show']['active'],
+            //          'trash' => false, // Will always be false because we can't delete on trash page.
+            //      ],
+            //      'label' => 'Bulk Delete',
+            //      'icon' => 'bi bi-trash3',
+            //      'type' => 'buttons.action-btn',
+            //      'style' => 'text-danger',
+            //      'route' => false,
+            //      'function' => 'deleteSelectedRecord',
+            //  ],
+            //  'bulk_restore' => [
+            //      'show' => [
+            //          'active' => false, // Will always be false because we can't restore on active page.
+            //          'trash' => $this->features()['bulk_actions']['show']['trash'],
+            //      ],
+            //      'label' => 'Bulk Restore',
+            //      'icon' => 'bi bi-arrow-counterclockwise',
+            //      'type' => 'buttons.action-btn',
+            //      'style' => 'text-success',
+            //      'route' => false,
+            //      'function' => 'restoreSelectedRecords',
+            //  ],
+            //  'trash' => [
+            //      'show' => [
+            //          'active' => true,
+            //          'trash' => false
+            //      ],
+            //      'label' => 'Trash',
+            //      'icon' => 'bi bi-recycle',
+            //      'type' => 'buttons.action-btn',
+            //      'style' => '',
+            //      'route' => false,
+            //      'function' => "toggleTrash('trash')",
+            //  ],
+            //  'active' => [
+            //      'show' => [
+            //          'active' => false,
+            //          'trash' => true
+            //      ],
+            //      'label' => 'Active',
+            //      'icon' => 'bi bi-x-lg',
+            //      'type' => 'buttons.action-btn',
+            //      'style' => '',
+            //      'route' => false,
+            //      'function' => "toggleTrash('active')",
+            //  ],
          );
      }
 

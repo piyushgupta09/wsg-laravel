@@ -45,9 +45,9 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         
-                        <button class="btn btn-dark btn-sm" onclick="printContent('orderDeliveryAddress{{ $orderDelivery->deliverable->id }}')">
-                            <i class="bi bi-printer-fill pe-2"></i> Print
-                        </button>
+                        <button class="btn btn-dark btn-sm" onclick="printContent('orderDeliveryAddress{{ $orderDelivery->id }}')">
+                                <i class="bi bi-printer-fill pe-2"></i> Print
+                            </button>
 
                         <p class="text-capitalize mb-0 fw-500 font-heading fw-bold">Delivery Info</p>
 
@@ -64,12 +64,8 @@
                 </div>
                 <div class="card-body">
 
-                    <div class="border-bottom pb-3">
-                        <strong>{{ $orderDelivery->deliverable->name }} {{ $orderDelivery->deliverable->lname }}</strong>
-                        <br>
-                        <span>{{ $orderDelivery->deliverable->line1 }}</span>
-                        <span class="ps-2">{{ $orderDelivery->deliverable->line2 }}</span>
-                        <span class="ps-2">Pincode: {{ $orderDelivery->deliverable->pincode }}</span>
+                     <div class="border-bottom pb-3">
+                        <strong>{{ $orderDelivery->shipping_address }}</strong>
                     </div>
 
                     <div class="pt-3">
@@ -121,17 +117,13 @@
 
                 {{-- For Pintout --}}
                 <div class="card-body d-none">
-                    <div id="orderDeliveryAddress{{ $orderDelivery->deliverable->id }}">
+                    <div id="orderDeliveryAddress{{ $orderDelivery->id }}">
                         <div style="padding: 2rem;">
-                            <span>Invoice (Order ID: {{ $orderDelivery->order->oid }})</span>
-                            <span>Invoice Amount: {{ $orderDelivery->order->total }}</span>
+                            <span>Invoice (Order ID: {{ $orderDelivery->id }})</span>
+                            <span>Invoice Amount: {{ $orderDelivery->id }}</span>
                             <hr>
                             <div class="small text-decoration-underline">Delivery Address</div>
-                            <strong>{{ $orderDelivery->deliverable->name }} {{ $orderDelivery->deliverable->lname }}</strong>
-                            <span>{{ $orderDelivery->deliverable->line1 }}</span>
-                            <span>{{ $orderDelivery->deliverable->line2 }}</span>
-                            <span>{{ $orderDelivery->deliverable->district }}, {{ $orderDelivery->deliverable->state }}, {{ $orderDelivery->deliverable->country }}</span>
-                            <span>Pincode: {{ $orderDelivery->deliverable->pincode }}</span>
+                            <strong>{{ $orderDelivery->shipping_address }}</strong>
                         </div>
                     </div>
                 </div>

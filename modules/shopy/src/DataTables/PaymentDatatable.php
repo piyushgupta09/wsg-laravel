@@ -1,6 +1,6 @@
 <?php
 
-namespace Fpaipl\Shopy\DataTables;
+namespace Fpaipl\Shopy\Datatables;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -150,7 +150,7 @@ class PaymentDatatable extends ModelDatatable
                     ],
                     'tbody' => [
                         'view' => 'cells.text-value',
-                        'value' => 'getModelName',
+                        'value' => 'getTableData',
                         'align' => '',
                     ],
                     'viewable' => [
@@ -170,7 +170,7 @@ class PaymentDatatable extends ModelDatatable
                     'exportable' => [
                         'active' => true,
                         'trash' => true,
-                        'value' => 'getValue'
+                        'value' => 'getTableData'
                     ],
                     'artificial' => false,
                     'fillable' => [
@@ -196,7 +196,7 @@ class PaymentDatatable extends ModelDatatable
                     ],
                     'tbody' => [
                         'view' => 'cells.text-value',
-                        'value' => '',
+                        'value' => 'getTableData',
                         'align' => '',
                     ],
                     'viewable' => [
@@ -216,7 +216,7 @@ class PaymentDatatable extends ModelDatatable
                     'exportable' => [
                         'active' => true,
                         'trash' => true,
-                        'value' => 'getValue'
+                        'value' => 'getTableData'
                     ],
                     'artificial' => false,
                     'fillable' => [
@@ -244,7 +244,7 @@ class PaymentDatatable extends ModelDatatable
                     ],
                     'tbody' => [
                         'view' => 'cells.text-value',
-                        'value' => '',
+                        'value' => 'getTableData',
                         'align' => '',
                     ],
                     'viewable' => [
@@ -264,7 +264,7 @@ class PaymentDatatable extends ModelDatatable
                     'exportable' => [
                         'active' => true,
                         'trash' => true,
-                        'value' => 'getValue'
+                        'value' => 'getTableData'
                     ],
                     'artificial' => false,
                     'fillable' => [
@@ -292,7 +292,7 @@ class PaymentDatatable extends ModelDatatable
                     ],
                     'tbody' => [
                         'view' => 'cells.text-value',
-                        'value' => 'getModelName',
+                        'value' => 'getTableData',
                         'align' => '',
                     ],
                     'viewable' => [
@@ -312,7 +312,7 @@ class PaymentDatatable extends ModelDatatable
                     'exportable' => [
                         'active' => true,
                         'trash' => true,
-                        'value' => 'getValue'
+                        'value' => 'getTableData'
                     ],
                     'artificial' => false,
                     'fillable' => [
@@ -340,7 +340,7 @@ class PaymentDatatable extends ModelDatatable
                     ],
                     'tbody' => [
                         'view' => 'cells.date-value',
-                        'value' => '',
+                        'value' => 'getTableData',
                         'align' => '',
                     ],
                     'viewable' => [
@@ -360,7 +360,7 @@ class PaymentDatatable extends ModelDatatable
                     'exportable' => [
                         'active' => true,
                         'trash' => true,
-                        'value' => 'getTimestamp'
+                        'value' => 'getTableData'
                     ],
                     'artificial' => false,
                     'fillable' => [
@@ -388,7 +388,7 @@ class PaymentDatatable extends ModelDatatable
                     ],
                     'tbody' => [
                         'view' => 'cells.text-value',
-                        'value' => '',
+                        'value' => 'getTableData',
                         'align' => '',
                     ],
                     'viewable' => [
@@ -408,7 +408,7 @@ class PaymentDatatable extends ModelDatatable
                     'exportable' => [
                         'active' => true,
                         'trash' => true,
-                        'value' => 'getValue'
+                        'value' => 'getTableData'
                     ],
                     'artificial' => false,
                     'fillable' => [

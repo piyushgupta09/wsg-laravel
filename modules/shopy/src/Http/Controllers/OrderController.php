@@ -7,7 +7,7 @@ use Fpaipl\Shopy\Models\Order;
 use Fpaipl\Shopy\DataTables\OrderDatatable as Datatable;
 use Fpaipl\Shopy\Actions\CreateOrder;
 use Fpaipl\Panel\Http\Controllers\PanelController;
-use Fpaipl\Shopy\DataTables\NewOrderDatatable;
+use Fpaipl\Shopy\Datatables\NewOrderDatatable;
 
 class OrderController extends PanelController
 {

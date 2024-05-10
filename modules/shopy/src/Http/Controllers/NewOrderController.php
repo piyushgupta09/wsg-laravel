@@ -3,7 +3,7 @@
 namespace Fpaipl\Shopy\Http\Controllers;
 
 use Fpaipl\Panel\Http\Controllers\PanelController;
-use Fpaipl\Shopy\DataTables\NewOrderDatatable as Datatable;
+use Fpaipl\Shopy\Datatables\NewOrderDatatable as Datatable;
 
 class NewOrderController extends PanelController
 {

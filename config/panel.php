@@ -32,6 +32,22 @@ return [
             'id' => 'user',
             'name' => 'user',
         ],
+        [
+            'id' => 'manager',
+            'name' => 'manager',
+        ],
+        [
+            'id' => 'data-manager',
+            'name' => 'data-manager',
+        ],
+        [
+            'id' => 'store-manager',
+            'name' => 'store-manager',
+        ],
+        [
+            'id' => 'order-manager',
+            'name' => 'order-manager',
+        ],
     ],
 
     'create-actions' => [],
@@ -173,70 +189,70 @@ return [
 
        
         // management modules
-        [
-            'module' => 'Management Modules',
-            'access' => 'admin',
-            'child' => [],
-        ],
-        [
-            'id' => 'menu-system',
-            'icon' => 'bi bi-shield-check',
-            'name' => 'System Controls',
-            'route' => null,
-            'position' => 6,
-            'access' => 'admin',
-            'child' => [
-                [
-                    'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'Users',
-                    'route' => 'users.index',
-                    'position' => 1,
-                    'access' => 'admin',
-                ],
-                [
-                    'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'Notifications',
-                    'route' => 'notifications.index',
-                    'position' => 2,
-                    'access' => 'admin',
-                ],
-                [
-                    'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'Activity Logs',
-                    'route' => 'activitylogs.index',
-                    'position' => 3,
-                    'access' => 'admin',
-                ],
-                [
-                    'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'Queued Jobs',
-                    'route' => 'jobs.index',
-                    'position' => 3,
-                    'access' => 'admin',
-                ],
-                [
-                    'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'Failed Jobs',
-                    'route' => 'failedjobs.index',
-                    'position' => 4,
-                    'access' => 'admin',
-                ],
-                [
-                    'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'Pusher Initiate',
-                    'route' => 'pusher.push',
-                    'position' => 5,
-                    'access' => 'admin',
-                ],
-                [
-                    'icon' => 'bi bi-arrow-right-short text-white',
-                    'name' => 'WPSubscriptions',
-                    'route' => 'webpushs.index',
-                    'position' => 6,
-                    'access' => 'admin',
-                ],
-            ],
-        ],
+    //     [
+    //         'module' => 'Management Modules',
+    //         'access' => 'admin',
+    //         'child' => [],
+    //     ],
+    //     [
+    //         'id' => 'menu-system',
+    //         'icon' => 'bi bi-shield-check',
+    //         'name' => 'System Controls',
+    //         'route' => null,
+    //         'position' => 6,
+    //         'access' => 'admin',
+    //         'child' => [
+    //             [
+    //                 'icon' => 'bi bi-arrow-right-short text-white',
+    //                 'name' => 'Users',
+    //                 'route' => 'users.index',
+    //                 'position' => 1,
+    //                 'access' => 'admin',
+    //             ],
+    //             [
+    //                 'icon' => 'bi bi-arrow-right-short text-white',
+    //                 'name' => 'Notifications',
+    //                 'route' => 'notifications.index',
+    //                 'position' => 2,
+    //                 'access' => 'admin',
+    //             ],
+    //             [
+    //                 'icon' => 'bi bi-arrow-right-short text-white',
+    //                 'name' => 'Activity Logs',
+    //                 'route' => 'activitylogs.index',
+    //                 'position' => 3,
+    //                 'access' => 'admin',
+    //             ],
+    //             [
+    //                 'icon' => 'bi bi-arrow-right-short text-white',
+    //                 'name' => 'Queued Jobs',
+    //                 'route' => 'jobs.index',
+    //                 'position' => 3,
+    //                 'access' => 'admin',
+    //             ],
+    //             [
+    //                 'icon' => 'bi bi-arrow-right-short text-white',
+    //                 'name' => 'Failed Jobs',
+    //                 'route' => 'failedjobs.index',
+    //                 'position' => 4,
+    //                 'access' => 'admin',
+    //             ],
+    //             [
+    //                 'icon' => 'bi bi-arrow-right-short text-white',
+    //                 'name' => 'Pusher Initiate',
+    //                 'route' => 'pusher.push',
+    //                 'position' => 5,
+    //                 'access' => 'admin',
+    //             ],
+    //             [
+    //                 'icon' => 'bi bi-arrow-right-short text-white',
+    //                 'name' => 'WPSubscriptions',
+    //                 'route' => 'webpushs.index',
+    //                 'position' => 6,
+    //                 'access' => 'admin',
+    //             ],
+    //         ],
+    //     ],
     ],
 
     'applinks' => [

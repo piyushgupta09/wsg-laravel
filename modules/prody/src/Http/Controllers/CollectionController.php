@@ -8,7 +8,7 @@ use Illuminate\Validation\Rules\File;
 use Fpaipl\Prody\Http\Requests\CollectionRequest;
 use Fpaipl\Panel\Http\Controllers\PanelController;
 use Fpaipl\Prody\Http\Requests\CollectionEditRequest;
-use Fpaipl\Prody\DataTables\CollectionDatatable as Datatable;
+use Fpaipl\Prody\Datatables\CollectionDatatable as Datatable;
 
 class CollectionController extends PanelController
 {
@@ -21,7 +21,7 @@ class CollectionController extends PanelController
     public function store(CollectionRequest $request)
     {
         $data = $request->validated();
-        $data['type'] = 'custom'; // 'recommended', 'new', 'trending', 'best_seller', 'sale', 'clearance', 'custom'
+        $data['type'] = 'recommended'; // 'recommended', 'new', 'trending', 'best_seller', 'sale', 'clearance', 'custom
         $collection = Collection::create($data);
 
         if (isset($collection)) {
@@ -74,19 +74,32 @@ class CollectionController extends PanelController
 
     public function destroy(Request $request, Collection $collection)
     {
-        // check if the collection has products
-        if ($collection->products->isNotEmpty()) {
-            return redirect()->back()->with('toast', [
-                'class' => 'danger',
-                'text' => 'Collection has products. Please remove them first.'
-            ]);
+        $response = Collection::safeDeleteModels(
+            array($collection->id), 
+            'App\Models\Collection'
+        );
+
+        switch ($response) {
+            case 'dependent':
+                session()->flash('toast', [
+                    'class' => 'danger',
+                    'text' => $this->messages['has_dependency']
+                ]);
+                break;
+            case 'success':
+                session()->flash('toast', [
+                    'class' => 'success',
+                    'text' => $this->messages['delete_success']
+                ]);
+                break;    
+            default: // failure
+                session()->flash('toast', [
+                    'class' => 'danger',
+                    'text' => $this->messages['delete_error']
+                ]);
+                break;
         }
 
-        $collection->forceDelete();
-
-        return redirect()->route('collections.index')->with('toast', [
-            'class' => 'success',
-            'text' => 'Collection deleted successfully.'
-        ]);
+        return redirect()->route('collections.index');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Fpaipl\Shopy\DataTables;
+namespace Fpaipl\Shopy\Datatables;
 
 use Illuminate\Database\Eloquent\Builder;
 

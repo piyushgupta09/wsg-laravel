@@ -1,6 +1,6 @@
 <?php
 
-namespace Fpaipl\Shopy\DataTables;
+namespace Fpaipl\Shopy\Datatables;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
@@ -134,7 +134,7 @@ class DeliveryDatatable extends ModelDatatable
                     'exportable' => [
                         'active' => true,
                         'trash' => true,
-                        'value' => 'getValue'
+                        'value' => 'getTableData'
                     ],
                     'artificial' => false,
                     'fillable' => [
@@ -180,7 +180,7 @@ class DeliveryDatatable extends ModelDatatable
                     'exportable' => [
                         'active' => true,
                         'trash' => true,
-                        'value' => 'getValue'
+                        'value' => 'getTableData'
                     ],
                     'artificial' => false,
                     'fillable' => [
@@ -228,7 +228,7 @@ class DeliveryDatatable extends ModelDatatable
                     'exportable' => [
                         'active' => true,
                         'trash' => true,
-                        'value' => 'getValue'
+                        'value' => 'getTableData'
                     ],
                     'artificial' => false,
                     'fillable' => [

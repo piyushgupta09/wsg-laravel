@@ -5,7 +5,7 @@ namespace Fpaipl\Shopy\Http\Controllers;
 use Illuminate\Http\Request;
 use Fpaipl\Shopy\Models\Coupon;
 use Fpaipl\Panel\Http\Controllers\PanelController;
-use Fpaipl\Shopy\DataTables\CouponDatatable as Datatable;
+use Fpaipl\Shopy\Datatables\CouponDatatable as Datatable;
 
 class CouponController extends PanelController
 {
